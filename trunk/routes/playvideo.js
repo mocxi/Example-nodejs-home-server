@@ -6,8 +6,8 @@ var video = require('../VideoModule');
 var newVidSetting = {
 	"mode": "development",
 	"forceDownload": false,
-	"random": true,
-	"rootFolder": "./public/video",
+	"random": false,
+	"rootFolder": "./public/video/",
 	"rootPath": "",
 	"server": "VidStreamer.js/0.1.4"
 }

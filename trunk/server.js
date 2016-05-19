@@ -13,7 +13,7 @@ var express = require('express'),
 var app = express();
 
 //config
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 4000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
