@@ -84,14 +84,12 @@ var vidStreamer = function (req, res) {
 			return false;
 		}
 	}
-console.log('info.path: ' + info.path);
+
 	// Security checks. Word.
 	if (!info.path) {
-		console.log('1');
 		handler.emit("badFile", res);
 		return false;
 	} else if (info.path.search(/^\.\.?|^\/|^\\/) !== -1) {
-		console.log('2');
 		handler.emit("security", res, { message: info.path });
 		return false;
 	} else if (info.path.substring(0, settings.rootPath.length) !== settings.rootPath) {
@@ -103,7 +101,6 @@ console.log('info.path: ' + info.path);
 		ext = info.path.match(/.*(\..+?)$/);
 
 		if (ext === null || ext.length !== 2 || (info.mime = mimeTypes[ext[1].toLowerCase()]) === undefined) {
-			console.log('4');
 			handler.emit("badMime", res, { message: info.path });
 			return false;
 		}
@@ -111,7 +108,6 @@ console.log('info.path: ' + info.path);
 
 	info.path = info.path.substring(settings.rootPath.length);
 	info.file = info.path.match(/(.*[\/|\\])?(.+?)$/)[2];
-
 	// Want that file or a consisten-but-random one instead (for demos)?
 	if (settings.random) {
 		if (!randomFile(info)) {
@@ -119,11 +115,8 @@ console.log('info.path: ' + info.path);
 			return false;
 		}
 	} else {
-		console.log('0.1 info.path: ' + info.path);
 		info.path = settings.rootFolder + info.path;
-		console.log('0.2 info.path: ' + info.path);
 	}
-console.log('000000info.path: ' + info.path);
 	try {
 		stat = fs.statSync(info.path);
 
@@ -135,7 +128,6 @@ console.log('000000info.path: ' + info.path);
 		handler.emit("badFile", res, e);
 		return false;
 	}
-	console.log('1 info.path: ' + info.path);
 	info.start = 0;
 	info.end = stat.size - 1;
 	info.size = stat.size;
@@ -155,7 +147,6 @@ console.log('000000info.path: ' + info.path);
 	}
 
 	info.length = info.end - info.start + 1;
-	console.log('info.path: ' + info.path);
 	downloadHeader(res, info);
 
 	// Flash vids seem to need this on the front, even if they start part way through. (JW Player does anyway.)
@@ -163,7 +154,7 @@ console.log('000000info.path: ' + info.path);
 		res.write("FLV" + pack("CCNN", 1, 5, 9, 9));
 	}
 	stream = fs.createReadStream(info.path, { flags: "r", start: info.start, end: info.end });
-	console.log('info.path: ' + info.path);
+	
 	if (settings.throttle && req.method.toLowerCase() === 'get') {
 		stream = stream.pipe(new Throttle(settings.throttle))
 	}
@@ -176,6 +167,13 @@ vidStreamer.settings = function (s) {
 	for (var prop in s) { settings[prop] = s[prop]; }
 	return vidStreamer;
 };
+
+//[MX] + add check file with list
+var CheckFileIfExit = function(info)
+{
+	
+}
+//[MX] -
 
 var randomFile = function (info) {
 	var fileCode = 0;

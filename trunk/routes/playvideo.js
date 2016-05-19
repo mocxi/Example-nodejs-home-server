@@ -11,7 +11,7 @@ var newVidSetting = {
 	"rootPath": "",
 	"server": "VidStreamer.js/0.1.4"
 }
-video.settings(newVidSetting);
+//video.settings(newVidSetting);
 router.get('/*', video);
 // router.get('/', function(req, res) {
   // res.send('Welcome to video!');
