@@ -1,0 +1,14 @@
+{
+  "name": "testpage",
+  "version": "1.0.0",
+  "description": "this is a test page node js",
+  "main": "index.html",
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "mocxi",
+  "license": "UNLICENSED"
+}
