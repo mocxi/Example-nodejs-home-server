@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var video = require('../VideoModule');
-// var video = require('vid-streamer');
+// var video = require('../VideoModule');
+var video = require('vid-streamer');
 
 var newVidSetting = {
 	"mode": "development",

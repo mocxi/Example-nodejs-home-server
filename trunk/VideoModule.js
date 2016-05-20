@@ -13,7 +13,6 @@ var url = require("url");
 var events = require("events");
 var settings = require('./config/vidStreamer-sample.json');
 var Throttle = require('throttle');
-
 var handler = new events.EventEmitter();
 
 // Stuff to serve. Don't add null or "null" to the list (".null" should be fine) as the regex extension check will fail and you'll have a big security hole. And obviously don't add .js, .php or anything else you don't want to serve as source either.
