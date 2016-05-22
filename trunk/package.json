@@ -19,6 +19,8 @@
 		"morgan" : "1.7.0",
 		"pug" : "2.0.0-alpha3",
 		"stylus" : "*",
-		"vid-streamer" : "1.0.0"		
+		"vid-streamer" : "1.0.0",
+		"path": "*",
+		"throttle": "*"
 	}
 }
