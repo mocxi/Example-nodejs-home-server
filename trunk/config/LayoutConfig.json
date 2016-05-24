@@ -1,0 +1,24 @@
+{
+	"title" : "Dashboard",
+	"menu" : {
+		"Dashboard" : 
+		{
+			"name" : "Dashboard",
+			"icon" : "",
+			"href" : "",
+			"active" : false
+		},
+		"m2" : 		{
+			"name" : "menu1xxx",
+			"icon" : "",
+			"href" : "",
+			"active" : false
+		},
+		"m3" : 		{
+			"name" : "menu2",
+			"icon" : "",
+			"href" : "",
+			"active" : false
+		}
+	}
+}

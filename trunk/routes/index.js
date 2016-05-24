@@ -7,8 +7,11 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
+var LayoutConfig = require('../config/LayoutConfig');
+
 router.get('/', function(req, res) {
-  res.render('index',{title:'Dashboard'});
+  // res.render('index',{title:'Dashboard', menu:{Dashboard: "Dashboard", m2: "menu2", m3: "menu3"}});
+  res.render('index',LayoutConfig);
 });
 
 router.get('/login', function(req, res) {

@@ -143,6 +143,7 @@ html(lang='en')
         MAIN SIDEBAR MENU
         ***********************************************************************************************************************************************************
       // sidebar start
+      //- var menuTitle = 'Dashboard'
       aside
         #sidebar.nav-collapse
           // sidebar menu start
@@ -152,8 +153,13 @@ html(lang='en')
                 img.img-circle(src='/img/ui-sam.jpg', width='60')
             h5.centered Marcel Newman
 			
+            each val, key in menu
+              li(class=val.class)
+                a(class=(title === val.name ? 'active' : ''))(href=val.href)
+                  i.fa.fa-dashboard
+                  span=val.name
             li.mt
-              a.active(href='')
+              a(class=(title === 'Dashboard' ? '' : ''))(href='')
                 i.fa.fa-dashboard
                 span Dashboard
             li.sub-menu
