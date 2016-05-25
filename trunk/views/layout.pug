@@ -153,73 +153,16 @@ html(lang='en')
                 img.img-circle(src='/img/ui-sam.jpg', width='60')
             h5.centered Marcel Newman
 			
-            each val, key in menu
+            each val, key in menuSide
               li(class=val.class)
                 a(class=(title === val.name ? 'active' : ''))(href=val.href)
-                  i.fa.fa-dashboard
+                  i(class=val.icon)
                   span=val.name
-            li.mt
-              a(class=(title === 'Dashboard' ? '' : ''))(href='')
-                i.fa.fa-dashboard
-                span Dashboard
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-desktop
-                span UI Elements
-              ul.sub
-                li
-                  a(href='general') General
-                li
-                  a(href='buttons') Buttons
-                li
-                  a(href='panels') Panels
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-cogs
-                span Components
-              ul.sub
-                li
-                  a(href='calendar') Calendar
-                li
-                  a(href='gallery') Gallery
-                li
-                  a(href='todo_list') Todo List
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-book
-                span Extra Pages
-              ul.sub
-                li
-                  a(href='blank') Blank Page
-                li
-                  a(href='login') Login
-                li
-                  a(href='lock_screen') Lock Screen
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-tasks
-                span Forms
-              ul.sub
-                li
-                  a(href='form_component') Form Components
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-th
-                span Data Tables
-              ul.sub
-                li
-                  a(href='basic_table') Basic Table
-                li
-                  a(href='responsive_table') Responsive Table
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-bar-chart-o
-                span Charts
-              ul.sub
-                li
-                  a(href='morris') Morris
-                li
-                  a(href='chartjs') Chartjs
+                if val.class === "sub-menu"
+                  ul.sub
+                    each smHref, smName in val.sub
+                      li
+                        a(href=smHref)|#{smName}
           // sidebar menu end
       // sidebar end
       //

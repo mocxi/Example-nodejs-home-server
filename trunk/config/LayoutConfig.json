@@ -1,24 +1,81 @@
 {
 	"title" : "Dashboard",
-	"menu" : {
+	"menuSide" : {
 		"Dashboard" : 
 		{
 			"name" : "Dashboard",
-			"icon" : "",
+			"icon" : "fa fa-dashboard",
 			"href" : "",
+			"class" : "mt",
 			"active" : false
 		},
-		"m2" : 		{
-			"name" : "menu1xxx",
-			"icon" : "",
+		"UI Elements" : 		{
+			"name" : "UI Elements",
+			"icon" : "fa fa-desktop",
 			"href" : "",
-			"active" : false
+			"class" : "sub-menu",
+			"active" : false,
+			"sub" : {
+				"General" : "general",
+				"Buttons" : "buttons",
+				"Panels" : "panels"
+			}
 		},
-		"m3" : 		{
-			"name" : "menu2",
-			"icon" : "",
+		"Components" : 		{
+			"name" : "Components",
+			"icon" : "fa fa-cogs",
 			"href" : "",
-			"active" : false
+			"active" : false,
+			"class" : "sub-menu",
+			"sub" : {
+				"Calendar" : "calendar",
+				"Gallery" : "gallery",
+				"Todo List" : "todo_list"
+			}
+		},
+		"Extra Pages" : 		{
+			"name" : "Extra Pages",
+			"icon" : "fa fa-book",
+			"href" : "",
+			"active" : false,
+			"class" : "sub-menu",
+			"sub" : {
+				"Blank Page" : "blank",
+				"Login" : "login",
+				"Lock Screen" : "lock_screen"
+			}
+		},
+		"Forms" : 		{
+			"name" : "Forms",
+			"icon" : "fa fa-tasks",
+			"href" : "",
+			"active" : false,
+			"class" : "sub-menu",
+			"sub" : {
+				"Form Components" : "form_component"
+			}
+		},
+		"Data Tables" : 		{
+			"name" : "Data Tables",
+			"icon" : "fa fa-th",
+			"href" : "",
+			"active" : false,
+			"class" : "sub-menu",
+			"sub" : {
+				"Basic Table" : "basic_table",
+				"Responsive Table" : "responsive_table"
+			}
+		},
+		"Charts" : 		{
+			"name" : "Charts",
+			"icon" : "fa fa-bar-chart-o",
+			"href" : "",
+			"active" : false,
+			"class" : "sub-menu",
+			"sub" : {
+				"Morris" : "morris",
+				"Chartjs" : "chartjs"
+			}
 		}
 	}
 }
