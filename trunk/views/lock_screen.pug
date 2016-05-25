@@ -6,14 +6,19 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='author', content='Dashboard')
     meta(name='keyword', content='Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina')
-    title DASHGUM - Bootstrap Admin Template
+    title DASHGUM - FREE Bootstrap Admin Template
     // Bootstrap core CSS
-    link(href='assets/css/bootstrap.css', rel='stylesheet')
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet')
     // external css
-    link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(href='/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/zabuto_calendar.css')
+    link(rel='stylesheet', type='text/css', href='/js/gritter/css/jquery.gritter.css')
+    link(rel='stylesheet', type='text/css', href='/lineicons/style.css')
     // Custom styles for this template
-    link(href='assets/css/style.css', rel='stylesheet')
-    link(href='assets/css/style-responsive.css', rel='stylesheet')
+    link(href='/stylesheets/style.css', rel='stylesheet')
+    link(href='/stylesheets/style-responsive.css', rel='stylesheet')
+    block css_ext
+    script(src='/js/chart-master/Chart.js')
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
@@ -40,7 +45,7 @@ html(lang='en')
                   h4.modal-title Welcome Back
                 .modal-body
                   p.centered
-                    img.img-circle(width='80', src='assets/img/ui-sam.jpg')
+                    img.img-circle(width='80', src='/img/ui-sam.jpg')
                   input.form-control.placeholder-no-fix(type='password', name='password', placeholder='Password', autocomplete='off')
                 .modal-footer.centered
                   button.btn.btn-theme04(data-dismiss='modal', type='button') Cancel
@@ -49,13 +54,13 @@ html(lang='en')
       // /col-lg-4
     // /container
     // js placed at the end of the document so the pages load faster
-    script(src='assets/js/jquery.js')
-    script(src='assets/js/bootstrap.min.js')
+    script(src='/js/jquery.js')
+    script(src='/js/bootstrap.min.js')
     // BACKSTRETCH
     // You can use an image of whatever size. This script will stretch to fit in any screen size.
-    script(type='text/javascript', src='assets/js/jquery.backstretch.min.js')
+    script(type='text/javascript', src='/js/jquery.backstretch.min.js')
     script.
-      $.backstretch("assets/img/login-bg.jpg", {speed: 500});
+      $.backstretch("/img/login-bg.jpg", {speed: 500});
     script.
       function getTime()
       {
