@@ -76,6 +76,13 @@
 				"Morris" : "morris",
 				"Chartjs" : "chartjs"
 			}
+		},
+        "VideoList" : 		{
+			"name" : "VideoList",
+			"icon" : "fa fa-bar-chart-o",
+			"href" : "VideoList",
+			"active" : false,
+			"class" : ""
 		}
 	}
 }

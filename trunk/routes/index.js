@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var vidList = require('../config/VidList');
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
   console.log('Time: ', Date.now());
@@ -15,6 +15,12 @@ router.get('/', function(req, res) {
   res.render('index', LayoutConfig);
 });
 
+router.get('/VideoList', function(req, res) {
+    LayoutConfig.title = "VideoList";
+    LayoutConfig.video = vidList.video;
+    res.render('VideoList', LayoutConfig);
+})
+
 router.get('/login', function(req, res) {
   res.render('login',{title:'login'});
 });
@@ -23,10 +29,14 @@ router.get('/profile', function(req, res) {
   res.render('profile',{title:'profile'});
 });
 
-router.get('/*', function(req, res) {
+router.get('/*', function(req, res, next) {
   // console.log(req.url);
   // console.log(req.params.filepath);
-  // if (req.url === '/' || req.url === '/login') return next();
+  if (req.url === '/' || req.url === '/login' || req.url.search('/playvideo') !== -1)
+  {
+      console.log("next()" + req.url);
+      return next();
+  }
   // LayoutConfig.title = ".*";
   res.render(req.url.replace('/',''),LayoutConfig);
 });

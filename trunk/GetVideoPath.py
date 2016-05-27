@@ -3,7 +3,7 @@ FileList = []
 FileListJson = {}
 FileListJson['video'] = []
 print json.dumps(FileListJson)
-path = os.getcwd()
+oldpath = path = os.getcwd()
 print path
 
 import glob
@@ -24,5 +24,7 @@ if len(FileList) < 1:
 else:
 	for f in FileList:
 		print(f)
-
+os.chdir(oldpath)
 print json.dumps(FileListJson)
+with open('./config/VidList.json','w+') as outFile:
+	outFile.write(json.dumps(FileListJson))
