@@ -8,6 +8,7 @@ var express = require('express'),
  vidStreamer = require("vid-streamer"),
  index = require("./routes/index"),
  videoSite = require("./routes/playvideo"),
+ uploadSite = require("./routes/upload"),
  printIPAddr = require('./IPAddress');
 
 var app = express();
@@ -23,17 +24,19 @@ app.use(express.static(path.join(__dirname, 'public')))
 //function
 app.use('/', index);
 app.use('/playvideo', videoSite);
+app.use('/upload', uploadSite);
+
 // app.get('/', function(req, res){
 	// res.render('index',
 	// {title: 'Home'}
 	// )
 // });
 
-app.get('/PlayVideo', function(req, res){
-	res.render('PlayVideo',
-	{title: 'Video'}
-	)
-});app.get("/videos/", vidStreamer);
+// app.get('/PlayVideo', function(req, res){
+	// res.render('PlayVideo',
+	// {title: 'Video'}
+	// )
+// });// app.get("/videos/", vidStreamer);
 //run
 app.listen(app.get('port'), function () {
 	console.log('MyPage listening on port ' + app.get('port') + '!');

@@ -83,6 +83,13 @@
 			"href" : "VideoList",
 			"active" : false,
 			"class" : ""
-		}
+		},
+        "Upload" : 		{
+                "name" : "Upload",
+                "icon" : "fa fa-bar-chart-o",
+                "href" : "Upload",
+                "active" : false,
+                "class" : ""
+        }
 	}
 }

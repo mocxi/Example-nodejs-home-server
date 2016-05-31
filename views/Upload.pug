@@ -1,0 +1,44 @@
+extend layout
+block content
+      // main content start
+      section#main-content
+        section.wrapper
+          h3
+            i.fa.fa-angle-right
+            | Upload Video
+          .row.mt
+            .col-lg-12
+              .form-panel
+                h4.mb
+                  i.fa.fa-angle-right
+                  |  Select your video
+                form.form-horizontal.style-form#fileUpload(method="post" action="/upload/uploadVideo" enctype="multipart/form-data")
+                    label.col-sm-2.col-sm-2.control-labellabel(for="payload") URL
+                    input.form-control#payload(type="file" name="VidFile" accept="video/*")
+                    br
+                    button.btn.btn-theme#uploadBtn(onClick=) Upload
+                if Upload_status === 'Successful'
+                    br
+                    .alert.alert-success
+                      b Well done!
+                      |  You successfully upload this video.
+                else if Upload_status === 'Error'
+                    br
+                    .alert.alert-danger
+                      b Error!
+                      |  Recheck the video path.
+                else if Upload_status === 'Conflict'
+                    br
+                    .alert.alert-warning
+                      b Conflict!
+                      |  This video is existed.
+      // /MAIN CONTENT      
+        // script for this page
+        script.
+          //custom select box
+          $(function(){
+          $('select.styled').customSelect();
+          });
+          function disableFunction() {
+          document.getElementById("uploadBtn").disabled = 'true';
+          }
