@@ -15,6 +15,7 @@
 		"connect" : "3.4.1",
 		"express" : "4.13.4",
 		"express-generator" : "4.13.1",
+        "map" : "*",
 		"multer" : "*",
 		"python-shell" : "*",
 		"morgan" : "1.7.0",
