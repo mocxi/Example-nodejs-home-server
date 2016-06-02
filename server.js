@@ -9,10 +9,13 @@ var express = require('express'),
  index = require("./routes/index"),
  videoSite = require("./routes/playvideo"),
  uploadSite = require("./routes/upload"),
+ pythonShell = require('python-shell'),
+ os = require('os'),
  printIPAddr = require('./IPAddress');
 
 var app = express();
-
+var port = 4000;
+var hostUrl = os.hostname() + '.sa2.gameloft.org:' + port;
 //config
 app.set('port', process.env.PORT || 4000);
 app.set('views', __dirname + '/views');
@@ -25,6 +28,17 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', index);
 app.use('/playvideo', videoSite);
 app.use('/upload', uploadSite);
+module.exports.hostUrl = hostUrl;
+
+module.exports.reloadVideoList = function(){
+	pythonShell.run('GetVideoPath.py', function(err, msg){
+		if (err) throw err;
+		console.log(msg);
+		console.log('finished');
+		index.reloadVidList();
+	});
+	return "Reload Video List";
+};
 
 // app.get('/', function(req, res){
 	// res.render('index',
@@ -40,5 +54,6 @@ app.use('/upload', uploadSite);
 //run
 app.listen(app.get('port'), function () {
 	console.log('MyPage listening on port ' + app.get('port') + '!');
+	console.log('window.location.host: ' + hostUrl);
 	printIPAddr();
 });

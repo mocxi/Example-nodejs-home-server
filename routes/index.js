@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var vidList = require('../config/VidList');
+var fs = require('fs');
+var vidPath = 'config/VidList.json';
+var vidList = JSON.parse(fs.readFileSync(vidPath, 'utf8')); 
+var app = require('../server.js');
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
   console.log('Time: ', Date.now());
@@ -18,6 +21,10 @@ router.get('/', function(req, res) {
 router.get('/VideoList', function(req, res) {
     LayoutConfig.title = "VideoList";
     LayoutConfig.video = vidList.video;
+    
+    LayoutConfig.HostUrl = app.hostUrl;
+    console.log(LayoutConfig.HostUrl);
+    console.log(app.hostUrl);
     res.render('VideoList', LayoutConfig);
 })
 

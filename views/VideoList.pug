@@ -1,4 +1,4 @@
-extend layout
+extend layout.pug
 block content
       // main content start
       section#main-content
@@ -19,15 +19,16 @@ block content
                     tr
                       th Index
                       th Video Name
-                      th Path
+                      th Url
                       th #
                   tbody
                     - var tableIndex = 1
+                    - var temp_url = HostUrl + '/playvideo/'
                     each vid in video
                       tr
                         td #{tableIndex++}
                         td #{vid.name}
-                        td #{vid.path}
+                        td #{temp_url + vid.name}
                         td
                           button.btn.btn-default.btn-xs
                             a(href=('/playvideo/').concat(vid.name)) Play
