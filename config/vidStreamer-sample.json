@@ -2,7 +2,7 @@
 	"mode": "development",
 	"forceDownload": false,
 	"random": false,
-	"rootFolder": "./public/video/",
+	"rootFolder": "../VideoSample/",
 	"rootPath": "",
 	"server": "VidStreamer.js/0.1.4"
 }
