@@ -15,7 +15,7 @@ var express = require('express'),
 
 var app = express();
 var port = 4000;
-var hostUrl = os.hostname() + '.sa2.gameloft.org:' + port;
+var hostUrl = os.hostname() + port;
 //config
 app.set('port', process.env.PORT || 4000);
 app.set('views', __dirname + '/views');
