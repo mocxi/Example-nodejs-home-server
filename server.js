@@ -9,7 +9,12 @@ var express = require('express'),
  index = require("./routes/index"),
  videoSite = require("./routes/playvideo"),
  uploadSite = require("./routes/upload"),
+ profileEditorSite = require("./routes/profileeditor"),
+ loginSite = require("./routes/login"),
  pythonShell = require('python-shell'),
+ passport = require('passport'),
+ funct = require('./config/function'),
+ LocalStrategy = require('passport-local'),
  os = require('os'),
  printIPAddr = require('./IPAddress');
 
@@ -24,10 +29,38 @@ app.use(morgan('dev'));
 app.use(require('stylus').middleware(__dirname + '/public'))
 app.use(express.static(path.join(__dirname, 'public')))
 
+/*passport.use('local-signin', new LocalStrategy(
+  {passReqToCallback : true}, //allows us to pass back the request to the callback
+  function(req, username, password, done) {
+    funct.localAuth(username, password)
+    .then(function (user) {
+      if (user) {
+        console.log("LOGGED IN AS: " + user.username);
+        req.session.success = 'You are successfully logged in ' + user.username + '!';
+        done(null, user);
+      }
+      if (!user) {
+        console.log("COULD NOT LOG IN");
+        req.session.error = 'Could not log user in. Please try again.'; //inform user could not log them in
+        done(null, user);
+      }
+    })
+    .fail(function (err){
+      console.log(err.body);
+    });
+  }
+));
+*/
+//app.use(passport.initialize());
+//app.use(passport.session());
+
 //function
 app.use('/', index);
 app.use('/playvideo', videoSite);
 app.use('/upload', uploadSite);
+app.use('/login', loginSite);
+app.use('/profileeditor', profileEditorSite);
+
 module.exports.hostUrl = hostUrl;
 
 module.exports.reloadVideoList = function(){

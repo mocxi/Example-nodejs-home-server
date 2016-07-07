@@ -1,0 +1,88 @@
+extend layout.pug
+block content
+      // main content start
+      section#main-content
+        section.wrapper
+          h3
+            i.fa.fa-angle-right
+            | Profile Editor
+          .row.mt
+            .col-lg-12
+              .form-panel
+                h4.mb
+                  i.fa.fa-angle-right
+                  |  Input info
+                form.style-form(method="post" action="/ProfileEditor/submitProfile")
+                    .form-group
+                      input.form-control(type="text", place-holder='anonymous | google | facebook', name="credential", accept="^(anonymous|google|facebook):.*=", value=Credential)
+                    .form-group
+                      label.col-sm-2.col-sm-2.control-labellabel(for="payload") is Gold?
+                      input(type="checkbox", name="environment", data-toggle='switch')
+                      br
+                      input(type="password", name="password")
+                    select.form-control(name="action" value=LastAction)
+                      option(value="1") Full Profile
+                      option(value="2") Full Inventory
+                      option(value="3") Clear Activities
+                      option(value="4") Clear Profile
+                      option(value="5") Save Profile
+                    br
+                    button.btn.btn-theme(type='submit') Submit 
+                if Submit_status === 'Successful'
+                    br
+                    .alert.alert-success
+                      b Well done!
+                      |  You successfully edit the profile.
+                else if Submit_status === 'Error'
+                    br
+                    .alert.alert-danger
+                      b Error!
+                      |  #{ErrorText}
+                else if Submit_status === 'Conflict'
+                    br
+                    .alert.alert-warning
+                      b Conflict!
+                      |  This video is existed.
+                br
+                form.syle-form(method="get" action = "/ProfileEditor/DownloadProfile")
+                  button.btn.btn-theme(type='submit')
+                    a(href="/ProfileEditor/DownloadProfile") Save
+                  //pre!=ProfileJson
+                br
+                #jsoneditor
+        // /MAIN CONTENT      
+        // script for this page
+        script(src='assets/js/jquery-ui-1.9.2.custom.min.js')
+        // custom switch
+        script(src='assets/js/bootstrap-switch.js')
+        // custom tagsinput
+        script(src='assets/js/jquery.tagsinput.js')
+        // custom checkbox & radio
+        script(type='text/javascript', src='assets/js/bootstrap-datepicker/js/bootstrap-datepicker.js')
+        script(type='text/javascript', src='assets/js/bootstrap-daterangepicker/date.js')
+        script(type='text/javascript', src='assets/js/bootstrap-daterangepicker/daterangepicker.js')
+        script(type='text/javascript', src='assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js')
+        script(src='assets/js/form-component.js')
+        script.
+          //custom select box
+          function disableFunction() {
+          document.getElementById("uploadBtn").disabled = 'true';
+          }
+
+          var container =  document.getElementById('jsoneditor');
+
+          var options = {
+            mode: 'view'
+          };
+
+          var json = {
+            'array': [1, 2, 3],
+            'boolean': true,
+            'null': null,
+            'number': 123,
+            'object': {'a': 'b'},
+            'string': 'Hello World'
+          };
+          jsonProfile = !{JSON.stringify(ProfileJson)};
+
+          var editor = new JSONEditor(container, options, jsonProfile);

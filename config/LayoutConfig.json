@@ -1,15 +1,14 @@
 {
 	"title" : "Dashboard",
 	"menuSide" : {
-		"Dashboard" : 
-		{
+		"Dashboard" : {
 			"name" : "Dashboard",
 			"icon" : "fa fa-dashboard",
 			"href" : "",
 			"class" : "mt",
 			"active" : false
 		},
-		"UI Elements" : 		{
+		"UI Elements" : {
 			"name" : "UI Elements",
 			"icon" : "fa fa-desktop",
 			"href" : "",
@@ -21,7 +20,7 @@
 				"Panels" : "panels"
 			}
 		},
-		"Components" : 		{
+		"Components" : {
 			"name" : "Components",
 			"icon" : "fa fa-cogs",
 			"href" : "",
@@ -33,7 +32,7 @@
 				"Todo List" : "todo_list"
 			}
 		},
-		"Extra Pages" : 		{
+		"Extra Pages" : {
 			"name" : "Extra Pages",
 			"icon" : "fa fa-book",
 			"href" : "",
@@ -45,7 +44,7 @@
 				"Lock Screen" : "lock_screen"
 			}
 		},
-		"Forms" : 		{
+		"Forms" : {
 			"name" : "Forms",
 			"icon" : "fa fa-tasks",
 			"href" : "",
@@ -55,7 +54,7 @@
 				"Form Components" : "form_component"
 			}
 		},
-		"Data Tables" : 		{
+		"Data Tables" : {
 			"name" : "Data Tables",
 			"icon" : "fa fa-th",
 			"href" : "",
@@ -66,7 +65,7 @@
 				"Responsive Table" : "responsive_table"
 			}
 		},
-		"Charts" : 		{
+		"Charts" : {
 			"name" : "Charts",
 			"icon" : "fa fa-bar-chart-o",
 			"href" : "",
@@ -77,19 +76,38 @@
 				"Chartjs" : "chartjs"
 			}
 		},
-        "VideoList" : 		{
+		"VideoList" : {
 			"name" : "VideoList",
 			"icon" : "fa fa-bar-chart-o",
 			"href" : "VideoList",
 			"active" : false,
 			"class" : ""
 		},
-        "Upload" : 		{
-                "name" : "Upload",
-                "icon" : "fa fa-bar-chart-o",
-                "href" : "Upload",
-                "active" : false,
-                "class" : ""
-        }
+		"Upload" : {
+			"name" : "Upload",
+			"icon" : "fa fa-bar-chart-o",
+			"href" : "Upload",
+			"active" : false,
+			"class" : ""
+		},
+		"Custom" : {
+			"name" : "Custom",
+			"icon" : "fa fa-bar-chart-o",
+			"href" : "#",
+			"active" : false,
+			"class" : "sub-menu",
+			"sub" : {
+				"VideoList" : "VideoList",
+				"Upload" : "Upload",
+				"MyGame" : "MyGame"
+			}
+		},
+		"ProfileEditor" : 		{
+			"name" : "ProfileEditor",
+			"icon" : "fa fa-bar-chart-o",
+			"href" : "ProfileEditor",
+			"active" : false,
+			"class" : ""
+		}
 	}
 }

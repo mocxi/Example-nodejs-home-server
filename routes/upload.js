@@ -15,7 +15,8 @@ LayoutConfig.status = "None";
 
 
 router.get('/', function(req, res) {
-    // console.log("status: " + req.query.q);    
+    // console.log("status: " + req.query.q);
+    console.log('Upload page loading!')
     LayoutConfig.title = "Upload";
         
     res.render('Upload', LayoutConfig);

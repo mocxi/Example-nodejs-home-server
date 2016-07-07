@@ -21,16 +21,16 @@ router.get('/', function(req, res) {
 router.get('/VideoList', function(req, res) {
     LayoutConfig.title = "VideoList";
     LayoutConfig.video = vidList.video;
-    
+    console.log('VideoList');
     LayoutConfig.HostUrl = app.hostUrl;
     console.log(LayoutConfig.HostUrl);
     console.log(app.hostUrl);
     res.render('VideoList', LayoutConfig);
 })
 
-router.get('/login', function(req, res) {
-  res.render('login',{title:'login'});
-});
+//router.get('/login', function(req, res) {
+//  res.render('login',{title:'login'});
+//});
 
 router.get('/profile', function(req, res) {
   res.render('profile',{title:'profile'});
