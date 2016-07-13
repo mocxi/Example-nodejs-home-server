@@ -21,27 +21,27 @@ router.use(require('express-session')({ secret: 'keyboard cat', resave: false, s
 // Use the LocalStrategy within Passport to login/”signin” users.
 
 passport.use('local-signin', new LocalStrategy(
-  {passReqToCallback : true}, //allows us to pass back the request to the callback
-  function(req, username, password, done) {
-    funct.localAuth(username, password)
-    .then(function (user) {
-	    console.log('local-signin');
-	    if (user) {
-	    	    console.log("LOGGED IN AS: " + user.username);
-	    	    req.session.success = 'You are successfully logged in ' + user.username + '!';
-	    	    done(null, user);
-      }
-      if (!user) {
-        console.log("COULD NOT LOG IN");
-        req.session.error = 'Could not log user in. Please try again.'; //inform user could not log them in
-        done(null, user);
-      }
-    })
-    .fail(function (err){
-      console.log(err.body);
-    });
-    console.log('local-signin');
-  }
+	{passReqToCallback : true}, //allows us to pass back the request to the callback
+	function(req, username, password, done) {
+	funct.localAuth(username, password)
+	.then(function (user) {
+		console.log('local-signin');
+		if (user) {
+				console.log("LOGGED IN AS: " + user.username);
+				req.session.success = 'You are successfully logged in ' + user.username + '!';
+				done(null, user);
+	  }
+	  if (!user) {
+		console.log("COULD NOT LOG IN");
+		req.session.error = 'Could not log user in. Please try again.'; //inform user could not log them in
+		done(null, user);
+	  }
+	})
+	.fail(function (err){
+	  console.log(err.body);
+	});
+	console.log('local-signin end');
+	}
 ));
 
 passport.use(new LocalStrategy.Strategy(

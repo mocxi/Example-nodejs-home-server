@@ -23,6 +23,7 @@
 		"stylus" : "*",
 		"vid-streamer" : "1.0.0",
 		"path": "*",
-		"throttle": "*"
+		"throttle": "*",
+        "nedb" : "*"
 	}
 }

@@ -19,10 +19,10 @@ var express = require('express'),
  printIPAddr = require('./IPAddress');
 
 var app = express();
-var port = 4000;
+var port = 5000;
 var hostUrl = os.hostname() + port;
 //config
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || port);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
