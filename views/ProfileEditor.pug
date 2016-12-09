@@ -12,22 +12,36 @@ block content
                 h4.mb
                   i.fa.fa-angle-right
                   |  Input info
-                form.style-form(method="post" action="/ProfileEditor/submitProfile")
+                form.form-horizontal.style-form(method="post" action="/ProfileEditor/submitProfile")
                     .form-group
-                      input.form-control(type="text", place-holder='anonymous | google | facebook', name="credential", accept="^(anonymous|google|facebook):.*=", value=Credential)
+                      .col-sm-10
+                        input.form-control(type="text", placeholder='anonymous | google | facebook', name="credential", accept="^(anonymous|google|facebook):.*=", value=Credential)
                     .form-group
-                      label.col-sm-2.col-sm-2.control-labellabel(for="payload") is Gold?
+                      label.col-sm-2.control-label(for="payload") is TV?
+                      input(type="checkbox", name="isTV", data-toggle='switch')
+                    .form-group
+                      label.col-sm-2.control-label(for="payload") is Gold?
                       input(type="checkbox", name="environment", data-toggle='switch')
+                    .form-group
+                        label.col-sm-2.control-label(for="payload") \\SA2WKS0272\password
+                        .col-sm-10
+                            input(type="password", name="password")
+                    .form-group
+                        .col-sm-10
+                            input(type="number",placeholder='Input XP',name="inputXP")
+                        .col-sm-10
+                            input(type="number", placeholder='Input Credits', name="inputCredits")
+                    .form-group
+                     .col-sm-10
+                      select.form-control(name="action")
+                          each action, id in ActionList
+                              if LastAction === id
+                                  option(value=id selected="true") #{action}
+                              else
+                                  option(value=id) #{action}
+                    .form-group
                       br
-                      input(type="password", name="password")
-                    select.form-control(name="action" value=LastAction)
-                      option(value="1") Full Profile
-                      option(value="2") Full Inventory
-                      option(value="3") Clear Activities
-                      option(value="4") Clear Profile
-                      option(value="5") Save Profile
-                    br
-                    button.btn.btn-theme(type='submit') Submit 
+                      button.btn.btn-theme(type='submit') Submit 
                 if Submit_status === 'Successful'
                     br
                     .alert.alert-success
@@ -44,15 +58,18 @@ block content
                       b Conflict!
                       |  This video is existed.
                 br
-                form.syle-form(method="get" action = "/ProfileEditor/DownloadProfile")
-                  button.btn.btn-theme(type='submit')
-                    a(href="/ProfileEditor/DownloadProfile") Save
+                if LastAction === "5"
+                  form.syle-form(method="get" action = "/ProfileEditor/DownloadProfile")
+                    button.btn.btn-theme(type='submit')
+                      a(href="/ProfileEditor/DownloadProfile") Save
                   //pre!=ProfileJson
                 br
                 #jsoneditor
-        // /MAIN CONTENT      
+                    // /MAIN CONTENT
+                    //
+block Scipt_ext
         // script for this page
-        script(src='assets/js/jquery-ui-1.9.2.custom.min.js')
+        //script(src='assets/js/jquery-ui-1.9.2.custom.min.js')
         // custom switch
         script(src='assets/js/bootstrap-switch.js')
         // custom tagsinput

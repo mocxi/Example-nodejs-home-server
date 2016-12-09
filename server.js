@@ -11,6 +11,7 @@ var express = require('express'),
  uploadSite = require("./routes/upload"),
  profileEditorSite = require("./routes/profileeditor"),
  loginSite = require("./routes/login"),
+ reportEditorSite = require("./routes/report_editor"),
  pythonShell = require('python-shell'),
  passport = require('passport'),
  funct = require('./config/function'),
@@ -60,6 +61,7 @@ app.use('/playvideo', videoSite);
 app.use('/upload', uploadSite);
 app.use('/login', loginSite);
 app.use('/profileeditor', profileEditorSite);
+app.use('/reporteditor', reportEditorSite);
 
 module.exports.hostUrl = hostUrl;
 

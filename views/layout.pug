@@ -18,11 +18,8 @@ html(lang='en')
     link(href='/stylesheets/style.css', rel='stylesheet')
     link(href='/stylesheets/style-responsive.css', rel='stylesheet')
     block css_ext
-    script(src='/js/chart-master/Chart.js')
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
   body
     section#container
       //
@@ -138,10 +135,7 @@ html(lang='en')
             li
               a.logout(href='login') Logout
       // header end
-      //
-        **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        ***********************************************************************************************************************************************************
+      // MAIN SIDEBAR MENU
       // sidebar start
       //- var menuTitle = 'Dashboard'
       aside
@@ -189,4 +183,4 @@ html(lang='en')
     script(src='/js/common-scripts.js')
     script(type='text/javascript', src='/js/gritter/js/jquery.gritter.js')
     script(type='text/javascript', src='/js/gritter-conf.js')
-    
+    block Script_ext
